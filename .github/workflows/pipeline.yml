@@ -1,0 +1,19 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v3
+
+      - name: Rodar Linter HTML
+        run: |
+          sudo npm install -g htmlhint
+          htmlhint index.html
